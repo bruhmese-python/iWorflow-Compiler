@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "Studio iWorkflow Compiler",
+    "version": "1.0",
+    "description": "Groovyc frontent for studio. Check for syntax errors in iworkflow/groovy code",
+    "icons": {
+        "120": "icon.png"
+    },
+    "action": {
+        "default_title": "Studio iWorkflow Compiler"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "js": [
+                "content-script.js"
+            ],
+            "matches": [
+                "https://studio.digitate.com/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "compileScript.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
